@@ -42,7 +42,7 @@ export async function getStaticPaths() {
         //code below dynamically regenerates array of paths navigable by id
         //allows to use url/api/meetupIdNumber
     return {
-        fallback: false,
+        fallback: 'blocking',
         paths: meetups.map(meetup => ({ 
             params: { meetupId: meetup._id.toString() },
         })),
