@@ -1,4 +1,6 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head';
+import { Fragment } from 'react/cjs/react.production.min';
 import NewMeetupForm from "../../components/meetups/NewMeetupForm";
 
 //domain/new-meetup
@@ -23,7 +25,18 @@ function NewMeetupPage() {
         router.replace('/');
     }
 
-    return <NewMeetupForm onAddMeetup={addMeetupHandler} />
+    return (
+    <Fragment>
+        <Head>
+            <title>React Meetups</title>
+            <meta
+                name='description'
+                content='Add your own meetup!'
+            />
+        </Head>
+        <NewMeetupForm onAddMeetup={addMeetupHandler} />
+    </Fragment>
+    )
 }
 
 export default NewMeetupPage;

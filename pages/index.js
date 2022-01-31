@@ -1,34 +1,21 @@
 import { MongoClient } from 'mongodb';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import Head from 'next/head';
+import { Fragment } from 'react/cjs/react.production.min';
 import MeetupList from '../components/meetups/MeetupList';
 
-const Dummy_Meetups = [
-{
-    id: 'm1',
-    title: 'A First Meetup',
-    image: 'https://picsum.photos/600/400',
-    address: 'Nowhere',
-    description: 'This is a first meetup!'
-},
-{
-    id: 'm2',
-    title: 'Another Meetup',
-    image: 'https://picsum.photos/600/400?blur',
-    address: 'Somewhere',
-    description: 'This is a meetup!'
-}
-];
-
 function HomePage(props) {
-  const [loadedMeetups, setLoadedMeetups] = useState([]);
-
-useEffect(() => {
-  //send https request
-  setLoadedMeetups(Dummy_Meetups);
-})
-
-  return <MeetupList meetups={props.meetups} />
+  return (
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta 
+          name="description"
+          content='Regard my NextJS project'
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </Fragment>
+  )
 }
 
 //runs with every request
