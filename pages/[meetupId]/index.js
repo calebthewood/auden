@@ -30,7 +30,7 @@ export async function getStaticPaths() {
     //in this case, there is only one.
 
     const client = await MongoClient.connect(
-        'mongodb+srv://admin-Caleb:test123@cluster0.op83k.mongodb.net/meetups?retryWrites=true&w=majority'
+        `${process.env.MONGOURL}`
         );
     const db = client.db();
     const meetupsCollection = db.collection('meetups');
@@ -54,7 +54,7 @@ export async function getStaticProps(context) {
     const meetupId = context.params.meetupId;
 
     const client = await MongoClient.connect(
-        'mongodb+srv://admin-Caleb:test123@cluster0.op83k.mongodb.net/meetups?retryWrites=true&w=majority'
+        `${process.env.MONGOURL}`
         );
     const db = client.db();
 
