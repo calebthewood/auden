@@ -30,7 +30,7 @@ function NewMeetupPage() {
         <Head>
             <title>React Meetups</title>
             <meta
-                name='description'
+                name='content'
                 content='Add your own meetup!'
             />
         </Head>

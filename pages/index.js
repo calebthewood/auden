@@ -9,7 +9,7 @@ function HomePage(props) {
       <Head>
         <title>React Meetups</title>
         <meta 
-          name="description"
+          name="content"
           content='Regard my NextJS project'
         />
       </Head>
@@ -41,7 +41,7 @@ export async function getServerSideProps(context) {
 export async function getStaticProps() {
  
    const client = await MongoClient.connect(
-            `${process.env.MONGOURL}`
+            `${process.env.API_URL}`
             );
 
         const db = client.db();
@@ -53,7 +53,8 @@ export async function getStaticProps() {
     props: {
       meetups: meetups.map(meetup => ({
         title: meetup.title,
-        address: meetup.address,
+        author: meetup.author,
+        content: meetup.content,
         image: meetup.image,
         id: meetup._id.toString()
       }))

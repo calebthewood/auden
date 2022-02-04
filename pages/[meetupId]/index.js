@@ -10,15 +10,15 @@ function MeetupDetails(props) {
                 <title>{props.meetupData.title}</title>
                 <meta
                     title='descriptipon'
-                    content={props.meetupData.description} 
+                    content={props.meetupData.content} 
                 />
             </Head>
         
         <MeetupDetail
             image={props.meetupData.image}
             title={props.meetupData.title}
-            address={props.meetupData.address}
-            description={props.meetupData.description}
+            author={props.meetupData.author}
+            content={props.meetupData.content}
         />
         </Fragment>
     );
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
     //in this case, there is only one.
 
     const client = await MongoClient.connect(
-        `${process.env.MONGOURL}`
+        `${process.env.API_URL}`
         );
     const db = client.db();
     const meetupsCollection = db.collection('meetups');
@@ -54,7 +54,7 @@ export async function getStaticProps(context) {
     const meetupId = context.params.meetupId;
 
     const client = await MongoClient.connect(
-        `${process.env.MONGOURL}`
+        `${process.env.API_URL}`
         );
     const db = client.db();
 
@@ -71,9 +71,9 @@ export async function getStaticProps(context) {
             meetupData: {
                 id: selectedMeetup._id.toString(),
                 title: selectedMeetup.title,
-                address: selectedMeetup.address,
+                author: selectedMeetup.author,
                 image:selectedMeetup.image,
-                description: selectedMeetup.description
+                content: selectedMeetup.content,
             },
 
         }

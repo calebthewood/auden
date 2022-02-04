@@ -7,10 +7,10 @@ async function handler(req, res) {
         const data = req.body;
 
         //destructured data that we expect to receive
-        //const { tite, image, address, description}
+        //const { tite, image, author, content}
         //destructuring not actually needed, because data is already in object format
 
-        const client = await MongoClient.connect(`${process.env.MONGOURL}`);
+        const client = await MongoClient.connect(`${process.env.API_URL}`);
 
         const db = client.db();
 
