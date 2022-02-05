@@ -21,7 +21,7 @@ async function handler(req, res) {
         console.log(result);
 
         client.close(); //closes connection to db
-        res.status(201).json({ message: 'Meetup Inserted' });
+        res.status(201).json({ message: 'Poem Inserted' });
     }
 }
 

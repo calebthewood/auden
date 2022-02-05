@@ -14,6 +14,9 @@ function MainNavigation() {
           <li>
             <Link href='/new-meetup'>Add to Collection</Link>
           </li>
+          <li>
+            <Link href='/pull-random'>Surprise Me</Link>
+          </li>
         </ul>
       </nav>
     </header>
