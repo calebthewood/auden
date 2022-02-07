@@ -8,6 +8,7 @@ function NewMeetupForm(props) {
   const imageInputRef = useRef();
   const authorInputRef = useRef();
   const contentInputRef = useRef();
+  const passwordInputRef = useRef();
 
   function submitHandler(event) {
     event.preventDefault();
@@ -16,6 +17,7 @@ function NewMeetupForm(props) {
     const enteredImage = imageInputRef.current.value;
     const enteredAuthor = authorInputRef.current.value;
     const enteredContent = contentInputRef.current.value;
+    const enteredPassword = passwordInputRef.current.value;
 
     const meetupData = {
       title: enteredTitle,
@@ -24,7 +26,9 @@ function NewMeetupForm(props) {
       content: enteredContent,
     };
 
+    if (enteredPassword === 'testing123') {
     props.onAddMeetup(meetupData);
+    }
   }
 
   return (
@@ -50,6 +54,10 @@ function NewMeetupForm(props) {
             rows='5'
             ref={contentInputRef}
           ></textarea>
+        </div>
+        <div className={classes.control}>
+          <label htmlFor='password'>Password</label>
+          <input type='password' required id='password' ref={passwordInputRef} />
         </div>
         <div className={classes.actions}>
           <button>Add to Collection</button>

@@ -4,6 +4,7 @@ import { MongoClient } from 'mongodb';
 
 async function handler(req, res) {
     if (req.method === 'POST') {
+        
         const data = req.body;
 
         //destructured data that we expect to receive
